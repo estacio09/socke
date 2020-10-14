@@ -10,6 +10,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         data = s.recv(1024).decode()
         if not data:
             break
-        print("Mensaje recibido del servidor:", data)
+        print( data)
         mensaje_enviar = input()
         s.sendall(mensaje_enviar.encode())

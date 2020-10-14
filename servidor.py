@@ -11,7 +11,8 @@ with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as so:
         ingreso2 = 0
             # ingreso = int(input())
         while ingreso2 != 2:
-            conexion.sendall("1: calcular masa, \n2: salir del programa".encode())
+            conexion.sendall("1: calcular masa, \n"
+                             "2: salir del programa".encode())
 
             try:
                 print("algo")
@@ -31,7 +32,7 @@ with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as so:
                             peso2 = float(peso)
                             indice = peso2 / (altura2 * altura2)
                             indice2 = str(indice)
-                            conexion.sendall(indice2.encode())
+                            print("su indice de masa es:", indice2)
                             ban = False
                         except ValueError:
                             conexion.sendall("elija una opcion valida".encode())
