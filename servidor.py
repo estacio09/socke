@@ -8,14 +8,14 @@ with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as so:
     with conexion:
         print('conexion establecidad desde: ', direccion)
 
-        ingreso = 0
+        ingreso2 = 0
             # ingreso = int(input())
-        while ingreso != 2:
+        while ingreso2 != 2:
             conexion.sendall("1: calcular masa, \n2: salir del programa".encode())
 
             try:
                 print("algo")
-                ingreso = so.recv(1024).decode()
+                ingreso = conexion.recv(1024).decode()
                 ingreso1 = str(ingreso)
                 ingreso2 = int(ingreso1)
                 if ingreso2 == 1:
@@ -24,10 +24,10 @@ with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as so:
 
                         try:
                             conexion.sendall("ingresar altura en metro".encode())
-                            altura = so.recv(1024).decode()
+                            altura = conexion.recv(1024).decode()
                             altura2 = float(altura)
                             conexion.sendall("ingresar peso".encode())
-                            peso = so.recv(1024).decode()
+                            peso = conexion.recv(1024).decode()
                             peso2 = float(peso)
                             indice = peso2 / (altura2 * altura2)
                             indice2 = str(indice)
